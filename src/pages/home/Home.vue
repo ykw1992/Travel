@@ -13,5 +13,6 @@ export default {
 <style>
   div{
     font-size:35px;
+    color: aqua;
   }
 </style>
