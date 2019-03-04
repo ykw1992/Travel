@@ -12,6 +12,6 @@ export default {
 
 <style>
   div{
-    font-size:30px;
+    font-size:35px;
   }
 </style>
