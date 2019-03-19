@@ -1,8 +1,8 @@
 <template>
   <div class="wrapper">
-    <swiper :options="swiperOption" >
+    <swiper :options="swiperOption" v-if="showSwipper">
       <!-- slides -->
-      <swiper-slide v-for="item of imgList" :key="item.id"><img class="swiper-img" :src="item.imgUrl" alt=""></swiper-slide>
+      <swiper-slide v-for="item of list" :key="item.id"><img class="swiper-img" :src="item.imgUrl" alt=""></swiper-slide>
       <!-- Optional controls -->
       <div class="swiper-pagination"  slot="pagination"></div>
       <!--<div class="swiper-button-prev" slot="button-prev"></div>-->
@@ -16,17 +16,22 @@
 
 export default {
   name: 'HomeSwiper',
+  props: {
+    list: Array
+  },
   data: function () {
     return {
       swiperOption: {
         pagination: '.swiper-pagination',
         loop: true
-      },
-      imgList: [
-        {id: '0001', imgUrl: 'http://img1.qunarzz.com/sight/p0/1805/fc/fc75b872467d8e79a3.water.jpg_710x360_04d6be48.jpg'},
-        {id: '0002', imgUrl: 'http://img1.qunarzz.com/sight/p0/1805/fc/fc75b872467d8e79a3.water.jpg_710x360_04d6be48.jpg'},
-        {id: '0003', imgUrl: 'http://img1.qunarzz.com/sight/p0/1805/c7/c7715b0945b2cfeba3.water.jpg_710x360_54b315df.jpg'}]
+      }
     }
+  },
+  computed: {
+    showSwipper () {
+      return this.list.length
+    }
+
   }
 }
 
@@ -42,7 +47,7 @@ export default {
       overflow hidden
       width 100%
       height 0
-      padding-bottom 50.7%
+      padding-bottom 31.2%
     .swiper-img
      width : 100%
      height : 100%
